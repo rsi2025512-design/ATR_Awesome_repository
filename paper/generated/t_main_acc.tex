@@ -1,0 +1,14 @@
+\begin{tabular}{lcccc}
+\toprule
+ & \multicolumn{4}{c}{Total human labels} \\
+\cmidrule(lr){2-5}
+ & 100 & 300 & 1000 & 3000 \\
+\midrule
+Manual (all labels human) & 62.3 $\pm$ 4.0 & 63.8 $\pm$ 4.3 & 68.3 $\pm$ 3.7 & 73.0 $\pm$ 0.7 \\
+AI-only (human labels = seed set) & 62.6 $\pm$ 3.6 & 66.9 $\pm$ 1.8 & 68.8 $\pm$ 3.5 & -- \\
+AI-assisted, random & -- & 62.3 $\pm$ 4.1 & 67.4 $\pm$ 2.3 & 69.5 $\pm$ 2.5 \\
+AI-assisted, least-confidence & -- & 62.6 $\pm$ 3.6 & 67.6 $\pm$ 2.5 & 70.0 $\pm$ 3.2 \\
+AI-assisted, margin & -- & 62.6 $\pm$ 3.6 & 67.6 $\pm$ 2.5 & 70.0 $\pm$ 3.2 \\
+AI-assisted, ensemble disagreement & -- & 62.1 $\pm$ 4.0 & 67.5 $\pm$ 2.4 & 72.3 $\pm$ 1.1 \\
+\bottomrule
+\end{tabular}

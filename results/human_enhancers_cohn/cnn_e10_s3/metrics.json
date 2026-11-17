@@ -1,0 +1,28 @@
+{
+  "args": {
+    "dataset": "human_enhancers_cohn",
+    "epochs": 10,
+    "batch_size": 64,
+    "embedding_dim": 100,
+    "seed": 3,
+    "tag": "cnn_e10_s3"
+  },
+  "n_fit": 18759,
+  "n_val": 2084,
+  "n_test": 6948,
+  "train_seconds": 10.9,
+  "val": {
+    "accuracy": 0.6693857965451055,
+    "macro_f1": 0.646615795619971,
+    "ece": 0.3093156524846284
+  },
+  "test": {
+    "accuracy": 0.6588946459412781,
+    "macro_f1": 0.6390277795923713,
+    "ece": 0.31875067173782684
+  },
+  "majority_class": 0,
+  "majority_test_accuracy": 0.5,
+  "torch": "2.5.1",
+  "gpu": "NVIDIA GeForce RTX 4090"
+}

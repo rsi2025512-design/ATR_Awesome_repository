@@ -1,0 +1,33 @@
+\begin{tabular}{lccl}
+\toprule
+Comparison (accuracy, pp) & Mean & 95\% CI & Verdict \\
+\midrule
+\multicolumn{4}{l}{\emph{Budget pair 100$\to$300}} \\
+least-conf. vs. random & +0.34 & [-0.47, +1.11] & no clear difference \\
+margin vs. random & +0.34 & [-0.47, +1.07] & no clear difference \\
+ens. disagr. vs. random & -0.14 & [-0.76, +0.50] & no clear difference \\
+random vs. manual(300) & -1.55 & [-7.55, +3.65] & no clear difference \\
+least-conf. vs. manual(300) & -1.21 & [-6.61, +3.76] & no clear difference \\
+margin vs. manual(300) & -1.21 & [-6.38, +3.29] & no clear difference \\
+ens. disagr. vs. manual(300) & -1.69 & [-7.76, +3.54] & no clear difference \\
+AI-only(100) vs. manual(100) & +0.26 & [-3.95, +4.51] & no clear difference \\
+\multicolumn{4}{l}{\emph{Budget pair 300$\to$1000}} \\
+least-conf. vs. random & +0.17 & [-0.47, +0.79] & no clear difference \\
+margin vs. random & +0.17 & [-0.49, +0.79] & no clear difference \\
+ens. disagr. vs. random & +0.12 & [-1.03, +1.29] & no clear difference \\
+random vs. manual(1000) & -0.93 & [-5.24, +3.03] & no clear difference \\
+least-conf. vs. manual(1000) & -0.76 & [-4.98, +3.37] & no clear difference \\
+margin vs. manual(1000) & -0.76 & [-4.96, +3.68] & no clear difference \\
+ens. disagr. vs. manual(1000) & -0.81 & [-5.32, +3.80] & no clear difference \\
+AI-only(300) vs. manual(300) & +3.06 & [-0.82, +7.43] & no clear difference \\
+\multicolumn{4}{l}{\emph{Budget pair 1000$\to$3000}} \\
+least-conf. vs. random & +0.60 & [-0.43, +1.53] & no clear difference \\
+margin vs. random & +0.60 & [-0.37, +1.58] & no clear difference \\
+ens. disagr. vs. random & +2.83 & [+1.32, +4.47] & beats \\
+random vs. manual(3000) & -3.54 & [-5.49, -1.61] & worse \\
+least-conf. vs. manual(3000) & -2.94 & [-5.44, -0.69] & worse \\
+margin vs. manual(3000) & -2.94 & [-5.32, -0.48] & worse \\
+ens. disagr. vs. manual(3000) & -0.71 & [-1.49, +0.07] & no clear difference \\
+AI-only(1000) vs. manual(1000) & +0.45 & [-2.32, +2.71] & no clear difference \\
+\bottomrule
+\end{tabular}

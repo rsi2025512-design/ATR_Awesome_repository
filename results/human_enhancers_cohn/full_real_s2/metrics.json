@@ -1,0 +1,45 @@
+{
+  "args": {
+    "dataset": "human_enhancers_cohn",
+    "epochs": 3,
+    "lr": 3e-05,
+    "batch_size": 32,
+    "seed": 2,
+    "max_train": null,
+    "shuffle_labels": false,
+    "tag": "full_real_s2"
+  },
+  "n_fit": 18759,
+  "n_val": 2084,
+  "n_test": 6948,
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.5337298010335979,
+      "seconds": 31.7,
+      "val_acc": 0.760556621880998
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.42901567746339253,
+      "seconds": 31.4,
+      "val_acc": 0.7571976967370442
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.32113067601302064,
+      "seconds": 31.4,
+      "val_acc": 0.7509596928982726
+    }
+  ],
+  "train_seconds": 97.6,
+  "test": {
+    "accuracy": 0.7538860103626943,
+    "macro_f1": 0.7536819133377495,
+    "ece": 0.12367322944023175
+  },
+  "majority_class": 0,
+  "majority_test_accuracy": 0.5,
+  "torch": "2.5.1",
+  "gpu": "NVIDIA GeForce RTX 4090"
+}

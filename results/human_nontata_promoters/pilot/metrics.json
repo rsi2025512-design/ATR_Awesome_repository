@@ -1,0 +1,33 @@
+{
+  "args": {
+    "dataset": "human_nontata_promoters",
+    "epochs": 1,
+    "lr": 3e-05,
+    "batch_size": 32,
+    "seed": 0,
+    "max_train": 3000,
+    "shuffle_labels": false,
+    "tag": "pilot"
+  },
+  "n_fit": 2700,
+  "n_val": 300,
+  "n_test": 9034,
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.45701229757732814,
+      "seconds": 4.3,
+      "val_acc": 0.82
+    }
+  ],
+  "train_seconds": 5.0,
+  "test": {
+    "accuracy": 0.8359530661943768,
+    "macro_f1": 0.8356653577884212,
+    "ece": 0.037795935310250155
+  },
+  "majority_class": 1,
+  "majority_test_accuracy": 0.5440557892406465,
+  "torch": "2.5.1",
+  "gpu": "NVIDIA GeForce RTX 4090"
+}

@@ -1,0 +1,28 @@
+{
+  "args": {
+    "dataset": "human_nontata_promoters",
+    "epochs": 10,
+    "batch_size": 64,
+    "embedding_dim": 100,
+    "seed": 1,
+    "tag": "cnn_e10_s1"
+  },
+  "n_fit": 24388,
+  "n_val": 2709,
+  "n_test": 9034,
+  "train_seconds": 13.0,
+  "val": {
+    "accuracy": 0.8217054263565892,
+    "macro_f1": 0.8213310793419091,
+    "ece": 0.17133336381394734
+  },
+  "test": {
+    "accuracy": 0.8268762452955501,
+    "macro_f1": 0.8263654249386923,
+    "ece": 0.16324651466287926
+  },
+  "majority_class": 1,
+  "majority_test_accuracy": 0.5440557892406465,
+  "torch": "2.5.1",
+  "gpu": "NVIDIA GeForce RTX 4090"
+}

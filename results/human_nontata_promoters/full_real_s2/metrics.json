@@ -1,0 +1,45 @@
+{
+  "args": {
+    "dataset": "human_nontata_promoters",
+    "epochs": 3,
+    "lr": 3e-05,
+    "batch_size": 32,
+    "seed": 2,
+    "max_train": null,
+    "shuffle_labels": false,
+    "tag": "full_real_s2"
+  },
+  "n_fit": 24388,
+  "n_val": 2709,
+  "n_test": 9034,
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.33252351748781045,
+      "seconds": 33.1,
+      "val_acc": 0.9014396456256921
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.16502577527851595,
+      "seconds": 33.0,
+      "val_acc": 0.9339239571797712
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.08682653114104322,
+      "seconds": 32.9,
+      "val_acc": 0.9287559985234404
+    }
+  ],
+  "train_seconds": 101.2,
+  "test": {
+    "accuracy": 0.9335842373256587,
+    "macro_f1": 0.9334954974621202,
+    "ece": 0.050633436564140835
+  },
+  "majority_class": 1,
+  "majority_test_accuracy": 0.5440557892406465,
+  "torch": "2.5.1",
+  "gpu": "NVIDIA GeForce RTX 4090"
+}
