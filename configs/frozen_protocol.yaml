@@ -1,0 +1,56 @@
+# Lab 02 protocol, version 2 (supersedes the draft). STATUS: ready to freeze.
+# Freeze = commit this file to git BEFORE any run of the main experiment. After the commit, changes need a
+# logged reason (protocol.md change log). Values marked [INFERRED] are design choices, not published settings.
+status: ready_to_freeze_v2
+changes_from_draft:
+  - "D10: primary dataset is human_enhancers_cohn; human_nontata_promoters is secondary and leakage-flagged (evidence E28-E41)"
+  - "Compute-feasible grid after timing real runs (about 100 s per full fine-tune)"
+primary_dataset: human_enhancers_cohn
+secondary_dataset:
+  name: human_nontata_promoters
+  note: "45.6% of test seqs share >80% of 16-mers with train, almost all negatives; report stratified results only"
+pool: official_train
+test: official_test
+low_overlap_test_subset: "test sequences sharing <=25% of 16-mers with train (k=16, both strands, scripts/leakage_check.py)"
+seed_set_sizes: [100, 300, 1000, 3000]
+budget_pairs: [[100, 300], [300, 1000], [1000, 3000]]     # B = s' - s extra human labels
+arms:
+  manual_small: "train on the s seed labels only"
+  manual_more: "train on s' randomly chosen pool items labelled by the simulated human"
+  ai_only: "seed model (s labels) pseudo-labels the pool; no human review"
+  ai_assisted: "s seed labels + B reviewed items chosen by a routing policy + pseudo-labels for the rest"
+  equal_effort_comparison: "manual_more vs ai_assisted at the same total human labels s' (= s + B)"
+routing_policies: [random, least_confidence, margin, ensemble_disagreement]
+ensemble_size: 5
+proposer: "model 0 of the ensemble (trained on the s seed labels); same proposer for all policies"
+pseudo_label_pool_subsample: 5000        # unreviewed pseudo-labelled items used for the final fit [INFERRED, for compute]
+simulated_human:
+  error_rate_e: {main: 0.05, sensitivity: [0.0, 0.10]}     # label flipped with probability e
+  reliance_a:   {main: 0.0,  sensitivity: [0.3]}           # with prob a the reviewer accepts the AI label unchecked
+seeds: {main: [0, 1, 2, 3, 4], sensitivity: [0, 1, 2]}
+sensitivity_grid: "e in {0.0, 0.05, 0.10} x a in {0.0, 0.3}, minus the main cell, on the 3 sensitivity seeds"
+model: zhihan1996/DNABERT-2-117M     # standard attention (triton removed); mean pooling; see D9
+hyperparameters:
+  note: "values USED in this study; NOT copied from the DNABERT-2 repo defaults (repo not yet read)"
+  learning_rate: 3.0e-5
+  epochs: 3
+  min_steps: 150          # epochs raised to reach at least this many optimiser steps on tiny sets [INFERRED; check in pilot]
+  batch_size: 32
+  warmup_fraction: 0.1
+  weight_decay: 0.01
+  precision: bf16
+  max_length: 512
+metrics:
+  primary: accuracy_on_official_test
+  secondary: [macro_f1, ece_15_bins, accuracy_on_low_overlap_subset]
+  calibration_bins: 15
+decision_rule:
+  min_gain_pp: 1.0
+  interval: "95% paired bootstrap over seeds and test items"
+  claim: "a policy beats random only if the mean paired difference >= 1.0 pp AND the lower 95% bound > 0"
+  contradiction: "a policy is not better than random if the interval includes 0 or the mean gain is below 1.0 pp"
+leakage_controls:
+  - "no test labels used for selection or tuning"
+  - "seed set drawn at random before any model is run; seeds fixed in this file"
+  - "exact duplicates checked (0); shared-16-mer overlap reported (E28, E35)"
+validated_baselines: "results/*/full_real_s*, cnn_e10_s*, full_shuffled_s0 (see baseline_validation.md)"
